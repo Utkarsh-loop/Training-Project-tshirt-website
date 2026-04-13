@@ -1,0 +1,35 @@
+{% extends 'store/base.html' %}
+
+{% block title %}About Us | Premium Tees{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center mb-5 pb-5 border-bottom">
+        <div class="col-lg-6 pe-lg-5 mb-4 mb-lg-0">
+            <h1 class="display-4 fw-bold mb-4">Redefining <span style="color: var(--accent-color);">Comfort</span>.</h1>
+            <p class="lead text-muted mb-4">Born from a simple idea: that everyday clothing shouldn't feel ordinary. We set out to create the perfect oversized t-shirt.</p>
+            <p class="text-secondary mb-4">We spent months sourcing the finest heavyweight cotton and perfecting a cut that drapes naturally across any body type. No more tight sleeves. No more shrinking after one wash. Just pure, uncompromised quality.</p>
+            <div class="d-flex gap-4 mb-4">
+                <div>
+                    <h3 class="fw-bold mb-1">100%</h3>
+                    <p class="text-muted small">Organic Cotton</p>
+                </div>
+                <div>
+                    <h3 class="fw-bold mb-1">280</h3>
+                    <p class="text-muted small">GSM Heavyweight</p>
+                </div>
+                <div>
+                    <h3 class="fw-bold mb-1">Zero</h3>
+                    <p class="text-muted small">Compromise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="p-5 rounded-4" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); min-height: 400px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                 <h2 class="text-muted" style="opacity: 0.5;">Crafted for you</h2>
+                 <!-- Optionally add a lifestyle image here -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<div class="container pb-5">
+    <!-- Hero Section -->
+    <div class="hero-wrapper d-flex align-items-center mb-5">
+        <div class="row w-100 align-items-center">
+            <div class="col-lg-6 ps-lg-5">
+                <span class="badge bg-primary text-white rounded-pill px-3 py-2 mb-3 shadow-sm" style="font-weight: 500;">NEW ARRIVALS 2026</span>
+                <h1 class="hero-title mb-4">The Perfect<br><span style="color: var(--accent-color);">Oversized</span> Fit.</h1>
+                <p class="lead text-muted mb-4 pe-lg-4">Discover our premium collection of heavyweight cotton tees designed for ultimate comfort and an effortless drape.</p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'shop' %}" class="btn btn-primary btn-lg px-4">Shop Collection</a>
+                    <a href="{% url 'about' %}" class="btn btn-outline-dark btn-lg px-4" style="border-radius: 8px;">Our Story</a>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block text-center mt-4 mt-lg-0">
+                <!-- Replace with dynamic hero image or one of the generated ones -->
+                <img src="/media/products/black_oversized_tshirt.png" alt="Hero Image" class="img-fluid rounded" style="max-height: 450px; object-fit: cover; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <div class="mt-5 pt-4">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2 class="h1 fw-bold mb-1">Trending Now</h2>
+                <p class="text-muted mb-0">Our most wanted oversized fits.</p>
+            </div>
+            <a href="{% url 'shop' %}" class="text-decoration-none fw-bold" style="color: var(--accent-color);">View All &rarr;</a>
+        </div>
+        
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center text-muted">
+                        No Image Available
+                    </div>
+                    {% endif %}
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0">{{ product.title }}</h5>
+                            <span class="price-tag">${{ product.price }}</span>
+                        </div>
+                        <p class="card-text text-muted flex-grow-1 small">{{ product.description|truncatewords:15 }}</p>
+                        <button class="btn btn-outline-primary w-100 mt-3" style="border-radius: 8px; font-weight: 600;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <p class="text-muted lead">No products available at the moment. Check back soon!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
