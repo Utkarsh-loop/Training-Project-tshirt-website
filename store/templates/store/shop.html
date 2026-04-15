@@ -1,4 +1,5 @@
 {% extends 'store/base.html' %}
+{% load static %}
 
 {% block title %}Shop | Premium Tees{% endblock %}
 
@@ -31,7 +32,7 @@
         <div class="col-sm-6 col-lg-4">
             <div class="card h-100 shadow-sm border-0">
                 {% if product.image %}
-                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                <img src="{% static product.image.name %}" class="card-img-top" alt="{{ product.title }}">
                 {% else %}
                 <div class="card-img-top bg-light d-flex align-items-center justify-content-center text-muted" style="height: 350px;">
                     No Image Available

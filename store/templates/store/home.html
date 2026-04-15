@@ -1,4 +1,5 @@
 {% extends 'store/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container pb-5">
@@ -16,7 +17,7 @@
             </div>
             <div class="col-lg-6 d-none d-lg-block text-center mt-4 mt-lg-0">
                 <!-- Replace with dynamic hero image or one of the generated ones -->
-                <img src="/media/products/black_oversized_tshirt.png" alt="Hero Image" class="img-fluid rounded" style="max-height: 450px; object-fit: cover; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
+                <img src="{% static 'products/black_oversized_tshirt.png' %}" alt="Hero Image" class="img-fluid rounded" style="max-height: 450px; object-fit: cover; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
             </div>
         </div>
     </div>
@@ -36,7 +37,7 @@
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm border-0">
                     {% if product.image %}
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    <img src="{% static product.image.name %}" class="card-img-top" alt="{{ product.title }}">
                     {% else %}
                     <div class="card-img-top bg-light d-flex align-items-center justify-content-center text-muted">
                         No Image Available
